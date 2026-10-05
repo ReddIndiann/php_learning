@@ -1,0 +1,15 @@
+{
+    "name": "macos/php_studies",
+    "autoload": {
+        "psr-4": {
+            "Macos\\PhpStudies\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ReddIndiann",
+            "email": "odaniel.ac@st.vvu.edu.gh"
+        }
+    ],
+    "require": {}
+}
