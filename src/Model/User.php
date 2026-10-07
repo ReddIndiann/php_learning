@@ -1,23 +1,23 @@
-<?php
+<?php 
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model{
 
 
-class User{
+protected $table = 'users';
 
 
-
-	public function __construct(
-private PDO $db
-	){}
+public $timestamps = false;
 
 
+protected $fillable = [
 
-	public getAllUsers(): array{
+'name',
+'email',
+'password',
+'role'
+];
 
-$statement = $this->db->query(
-"SELECT * FROM users"
-);
 
-return $statement->fetchAll();
-
-	}
 }

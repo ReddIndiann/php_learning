@@ -1,36 +1,30 @@
 <?php
 
 
-function add($a,$b){
+require_once __DIR__ . '/Database.php';
 
-$result = $a + $b;
-
-echo "result: " . $result;
-
-};
+require_once __DIR__ . '/Model/User.php';
 
 
+$user = User::create([
 
-// add(1,2);
-
-function subtract($a,$b){
-    $result = $a - $b;
-    echo "result: " . $result;
-    };
-
-//subtract(35,2);
+'name' => 'Johndwq Doe',
+'email'=> 'johncDmoe@gmail.com',
+'role' => 'admin',
+'password' => 'admin123'
+]);
 
 
+$users = User::all();
 
-function findBiggest(array $arr){
+foreach($users as $user){
 
-	return max($arr);
+	echo $user->name . "<br>";
 }
 
 
 
 
-$big = findBiggest([1,2,3]);
-echo $big;
 
-;
+
+

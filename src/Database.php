@@ -1,41 +1,23 @@
 <?php
 
 
-//DB class to initiate connection in every model 
-Class Database {
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+
+$capsule = new Capsule;
+
+$capsule->addConnection([
+'driver' => 'sqlite',
+'database' => __DIR__ . '/../database/database.sqlite',
+]);
 
 
 
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
 
 
-//PDO connection variable
-	private PDO $connection;
 
-//constructore is to initialise a new connection open being called
-	public function __construct(){
-
-
-		$this->connection = new PDO(
-
-			'sqlite:' . __DIR__ . '/../database/database.sqlite'
-		);
-		$this->connection->setAttribute(
-			PDO::ATTR_ERRMODE,
-			PDO::ERRMODE_EXCEPTION
-		);
-
-		$this->connection->setAttribute(
-			PDO::ATTR_DEFAULT_FETCH_MODE,
-			PDO::FETCH_ASSOC
-		);
-
-	}
-	public function getConnection(): PDO
-	{
-
-		return $this->connection;
-
-	}
-
-
-}
+;
