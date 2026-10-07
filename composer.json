@@ -11,5 +11,7 @@
             "email": "odaniel.ac@st.vvu.edu.gh"
         }
     ],
-    "require": {}
+    "require": {
+        "illuminate/database": "^13.35"
+    }
 }
